@@ -98,7 +98,7 @@ def delete_item(item_id):
     except KeyError:
         abort(404, message= "Item not found.")
         
-#Updata item
+#Update item
 @app.put("/item/<string:item_id>")
 def update_item(item_id):
     item_data = request.get_json()
