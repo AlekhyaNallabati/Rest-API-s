@@ -60,7 +60,7 @@ class LinkTagsToItem(MethodView):
             db.session.add(item)
             db.session.commit()
         except SQLAlchemyError:
-            abort(500, message="An error occurred while inserting the tag.")
+            abort(500, message="An error occurred while removing the tag.")
 
         return {"message": "Item removed from tag", "item": item, "tag": tag}
 
