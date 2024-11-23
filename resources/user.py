@@ -42,6 +42,7 @@ class UserLogin(MethodView):
 
         abort(401, message = "Invalid credentials.")
 
+
 @blp.route("/refresh")
 class TokenRefresh(MethodView):
     @jwt_required(refresh=True)  # means this needs a refresh token not an access token
