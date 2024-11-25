@@ -1,13 +1,12 @@
 import os
-import secrets
 
 from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
+from dotenv import load_dotenv
 
 from db import db
-import models
 from blocklist import BLOCKLIST
 
 from resources.item import blp as ItemBlueprint
@@ -19,6 +18,7 @@ from resources.user import blp as UserBlueprint
 
 def create_app(db_url=None):
     app = Flask(__name__)
+    load_dotenv()
 
     app.config["PROPAGATE_EXCEPTIONS"] = True
     app.config["API_TITLE"] = "Stores REST API"
